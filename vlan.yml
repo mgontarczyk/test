@@ -34,6 +34,7 @@
       state:   "present"
       admin_state: "up"
     with_items: "{{outside.vlans}}"
+  tags: [outside]
 
   - name: Add vlan to trunk
     nxos_switchport:
