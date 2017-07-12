@@ -35,7 +35,7 @@
       admin_state: "up"
     with_items: "{{outside.vlans}}"
 
-  - name: Dodaj do Trunka
+  - name: Add vlan to trunk
     nxos_switchport:
       interface: eth2/33
       mode: trunk
