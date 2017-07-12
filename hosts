@@ -1,0 +1,5 @@
+[outside]
+dmzsw01-outside  ansible_host=172.16.1.92 ansible_os=nxos
+
+[inside]
+dmzsw01-inside  ansible_host=172.16.1.93 ansible_os=nxos

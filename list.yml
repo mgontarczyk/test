@@ -1,0 +1,6 @@
+---
+vlans:
+  - { id: 106, name: "test_106", vdc: "INSIDE" }
+  - { id: 207, name: "test_207", vdc: "OUTSIDE" }
+  - { id: 208, name: "test_208", vdc: "OUTSIDE" }
+  - { id: 209, name: "test_209", vdc: "OUTSIDE" }

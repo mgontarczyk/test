@@ -1,0 +1,26 @@
+---
+- name: Test
+  hosts: all
+  tasks:
+  - include_vars:
+      file: "{{test|default(inventory_dir~'/list.yml')}}"
+      name: "test"
+    tags: [ always ] 
+
+#  - debug:
+#      msg: "System {{ inventory_hostname }} bedzie mial vlany {{ test.vlans }}"
+
+#  - set_fact: data="{{lookup('template','templates/node-model.j2')}}"
+#    tags: [ always ]
+
+#  - debug:
+#     msg: "Vlan {{ data }} "
+
+  - name: Add NX-OS VLANs
+    nxos_vlan:
+      provider: "{{cli}}"
+      vlan_id: 105
+      name:    Test_105
+      state:   "present"
+      admin_state: "up"
+#    with_items: "{{test.vlans}}"
