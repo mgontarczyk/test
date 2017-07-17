@@ -1,6 +1,6 @@
 ---
 - name: Inside VLANS Add
-  hosts: all
+  hosts: inside
   tasks:
   - include_vars:
       file: "{{list|default(inventory_dir~'/list.yml')}}"
@@ -17,22 +17,14 @@
       admin_state: "up"
     with_items: "{{list.vlans}}"
     when: item.vdc == "INSIDE"
-    tags: [inside]
-
-  - name: Add VLANs to vdc Outside
-    nxos_vlan:
-      provider: "{{cli}}"
-      vlan_id: "{{item.id}}" 
-      name:    "{{item.name}}"
-      state:   "present"
-      admin_state: "up"
-    with_items: "{{list.vlans}}"
-    tags: [outside]
+    tags: [ add_vlan ]
 
   - name: Add vlan to trunk
     nxos_switchport:
-      interface: eth2/33
+      interface: item[1].portnumber
       mode: trunk
-      trunk_vlans: "{{item.id}}"
-    with_items: "{{outside.vlans}}"
-    when: "item.id"
+      trunk_vlans: "{{item[0].id}}"
+    with_nested:
+      - "{{ list.vlans }}"
+      - "{{ list.ports }}"
+    when: item[0].vdc == "INSIDE"

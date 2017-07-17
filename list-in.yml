@@ -1,6 +1,8 @@
 ---
-vlans:
-  - { id: 106, name: "test_106", vdc: "INSIDE" }
+- vlans:
+   id: 106
+   name: Test_106 
+   vdc: INSIDE
   - { id: 110, name: "test_110", vdc: "INSIDE" }
   - { id: 111, name: "test_111", vdc: "INSIDE" }
 

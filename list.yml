@@ -1,6 +1,23 @@
 ---
 vlans:
-  - { id: 106, name: "test_106", vdc: "INSIDE" }
-  - { id: 207, name: "test_207", vdc: "OUTSIDE" }
-  - { id: 208, name: "test_208", vdc: "OUTSIDE" }
-  - { id: 209, name: "test_209", vdc: "OUTSIDE" }
+ - id: 88
+   name: Test_88
+   vdc: INSIDE
+
+ - id: 99
+   name: Test_99 
+   vdc: INSIDE
+
+ - id: 77
+   name: Test_99 
+   vdc: INSIDE
+
+ - id: 98
+   name: Test_99 
+   vdc: OUTSIDE
+
+
+ports:
+  - portnumber: "Eth3/2"
+    name: TESTSERVER01
+    owner: IT
