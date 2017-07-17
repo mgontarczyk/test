@@ -1,5 +1,0 @@
----
-vlans:
-  - { id: 607, name: "test_307", vdc: "OUTSIDE", type: "inside" }
-  - { id: 508, name: "test_308", vdc: "OUTSIDE", type: "outside" }
-  - { id: 509, name: "test_309", vdc: "OUTSIDE", type: "outside" }
