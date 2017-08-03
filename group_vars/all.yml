@@ -7,3 +7,5 @@ cli:
   password:  "{{ansible_ssh_pass}}"
   host:      "{{ansible_host|default(inventory_hostname)}}"
   transport: cli
+
+repository: . 
