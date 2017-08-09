@@ -8,4 +8,4 @@ cli:
   host:      "{{ansible_host|default(inventory_hostname)}}"
   transport: cli
 
-repository: . 
+repository: ./backup 
