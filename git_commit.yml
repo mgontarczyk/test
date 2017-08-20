@@ -20,7 +20,7 @@
   - name: "Add files to Git staging area, commit and push"
     shell: |
       git add .
-      git commit -m "Configuration changed on {{timestamp.stdout}}"
+      git commit -m "File changed on {{timestamp.stdout}}"
       git push --set-upstream origin {{branch|default('master')}}
     args:
       chdir: "{{repository}}"

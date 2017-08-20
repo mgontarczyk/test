@@ -5,7 +5,6 @@
   - include_vars:
       file: "{{list|default(inventory_dir~'/list.yml')}}"
       name: "list"
-    tags: [ always ] 
 
 
   - name: Add VLANs to vdc INSIDE
@@ -17,7 +16,7 @@
       admin_state: "up"
     with_items: "{{list.vlans}}"
     when: item.vdc == "INSIDE"
-    tags: [inside]
+
 
   - name: Add VLANs to vdc Outside
     nxos_vlan:
@@ -27,7 +26,7 @@
       state:   "present"
       admin_state: "up"
     with_items: "{{list.vlans}}"
-    tags: [outside]
+    when: item.vdc == "OUTSIDE"
 
   - name: Add vlan to trunk
     nxos_switchport:

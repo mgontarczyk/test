@@ -3,26 +3,32 @@ vlans:
  - id: 88
    name: Test_88
    vdc: INSIDE
+   type: INSIDE
 
  - id: 99
    name: Test_99 
    vdc: INSIDE
+   type:INSIDE
 
  - id: 77
    name: Test_99 
    vdc: INSIDE
+   type: OUTSIDE
 
  - id: 98
    name: Test_99 
    vdc: OUTSIDE
+   type: 
 
  - id: 100
    name: Test_100 
    vdc: OUTSIDE
+   type:
 
  - id: 101
    name: Test_101 
    vdc: OUTSIDE
+   type: 
 
 ports:
   - portnumber: Eth3/2
