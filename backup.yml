@@ -1,9 +1,9 @@
 ---
 - name: Backup od configuration before changes
   hosts: all
- # tasks:
-#  - nxos_config:
- #    backup:
+  tasks:
+  - nxos_config:
+     backup: yes
 
 - hosts: localhost
   tasks:

@@ -9,3 +9,4 @@ cli:
   transport: cli
 
 repository: ./backup 
+archive: ./archive

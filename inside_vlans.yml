@@ -1,11 +1,14 @@
 ---
+- include: "backup.yml"
 - name: Inside VLANS Add
   hosts: inside
+
   tasks:
   - include_vars:
       file: "{{list|default(inventory_dir~'/list.yml')}}"
       name: "list"
-    tags: [ always ] 
+    tags: [ always ]
+
 
 
   - name: Add VLANs to vdc INSIDE
@@ -28,3 +31,4 @@
       - "{{ list.vlans }}"
       - "{{ list.ports }}"
     when: item[0].vdc == "INSIDE"
+    tags: [add_trunk]
