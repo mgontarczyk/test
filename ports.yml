@@ -1,4 +1,0 @@
----
-ports:
-  - { port: eth1/2, vdc: "INSIDE" }
-
