@@ -1,0 +1,17 @@
+---
+- name: Backup od configuration before changes
+  hosts: all
+  tasks:
+  - nxos_config:
+     backup: yes
+
+- hosts: localhost
+  tasks:
+  - name: Get timestamp
+    shell: date
+    register: timestamp
+
+  - copy: src={{ item }} dest=./archive/
+    with_fileglob:
+    - ./backup/*
+
