@@ -1,4 +1,2 @@
 ---
-- name: Backup od configuration before changes
-  nxos_config:
-    backup: yes
+- include: backup.yml tags=backup
