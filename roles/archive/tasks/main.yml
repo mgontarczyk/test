@@ -1,0 +1,5 @@
+---
+- copy: src={{ item }} dest=./archive/
+  with_fileglob:
+    - ./roles/backup/backup/*
+
