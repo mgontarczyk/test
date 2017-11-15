@@ -33,5 +33,5 @@
       interface: eth2/33
       mode: trunk
       trunk_vlans: "{{item.id}}"
-    with_items: "{{outside.vlans}}"
+    with_items: "{{list.vlans}}"
     when: "item.id"

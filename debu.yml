@@ -1,0 +1,7 @@
+- hosts: all
+  tasks:
+  - name: test
+    debug: msg="This will not be printed"
+  - name: test 2 
+    debug: msg="But this will"
+    tags: [print_action]

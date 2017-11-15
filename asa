@@ -1,0 +1,29 @@
+- name: Deploy Services Context config 
+  hosts: fw-blahblahblah
+  connection: local
+  gather_facts: no
+  vars:
+    tn_name: infra
+    outside_primary: 10.xxx.xxx.33
+    outside_secondary: 10.xxx.xxx.34
+    inside_primary: 10.xxx.xxx.49
+    inside_secondary: 10.xxx.xxx.50
+    routing_tn_to_fw_ip: 10.xxx.xxx.46
+    app_tn_to_fw_ip: 10.xxx.xxx.62
+    asa:
+      host: "{{ inventory_hostname }}"
+      username: ansible
+      ssh_keyfile: "~/.ssh/id_rsa_ansible"
+      authorize: no
+      transport: cli
+
+  tasks:
+  - name: deploy services (infra) outside interface
+    asa_config:
+      lines:
+        - nameif routing-{{ tn_name }}-outside
+        - security-level 0
+        - ip address {{ outside_primary }} 255.255.255.240 standby {{ outside_secondary }}
+      parents: ['interface outside']
+      context: "{{ tn_name }}"
+      provider: "{{ asa }}"
