@@ -16,21 +16,11 @@
       admin_state: "up"
     with_items: "{{list.vlans}}"
     when: item.vdc == "INSIDE"
-
-
-  - name: Add VLANs to vdc Outside
-    nxos_vlan:
-      provider: "{{cli}}"
-      vlan_id: "{{item.id}}" 
-      name:    "{{item.name}}"
-      state:   "present"
-      admin_state: "up"
-    with_items: "{{list.vlans}}"
-    when: item.vdc == "OUTSIDE"
+    tags: [print_action]
 
   - name: Add vlan to trunk
     nxos_switchport:
-      interface: eth2/33
+      interface: eth1/33
       mode: trunk
       trunk_vlans: "{{item.id}}"
     with_items: "{{list.vlans}}"

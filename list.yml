@@ -11,12 +11,12 @@ vlans:
    type: INSIDE
 
  - id: 77
-   name: Test_99 
+   name: Test_77 
    vdc: INSIDE
    type: OUTSIDE
 
  - id: 98
-   name: Test_99 
+   name: Test_98 
    vdc: OUTSIDE
    type: INSIDE
 
@@ -30,7 +30,23 @@ vlans:
    vdc: OUTSIDE
    type: INSIDE
 
-ports:
-  - portnumber: Eth3/2
-    name: TESTSERVER02
-    owner: IT
+ - id: 102
+   name: Test102
+   vdc: INSIDE
+   type: INSIDE
+
+ - id: 103
+   name: Test103
+   vdc: INSIDE
+   type: INSIDE
+
+ - id: 104
+   name: Test104
+   vdc: INSIDE
+   type: INSIDE
+
+ - id: 105
+   name: Test105
+   vdc: INSIDE
+   type: INSIDE
+
