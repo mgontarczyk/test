@@ -1,0 +1,24 @@
+---
+- name: Servers - test
+  hosts: outside
+  vars:
+    servers:
+      Server1:
+        interface: eth1/1
+        vlans: "2,3,4-10"
+      server2:
+        interface: eth1/2
+        vlans: "1,10,20,30"
+      Server3:
+        interface: eth1/3
+        vlans: "1,10,20,30"
+  tasks:
+    - nxos_l2_interface:
+        name: "{{ item.value.interface }}"
+        mode: trunk
+        trunk_vlans: "{{ item.value.vlans }}"
+      with_dict: "{{ servers }}"
+#    - name: Test with_dict
+##        debug:
+#          msg: "{{ item.key }} intf {{ item.value.interface }} vlans {{ item.value.vlans }}"
+#        with_dict: "{{ servers }}"

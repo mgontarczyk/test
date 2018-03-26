@@ -1,0 +1,9 @@
+---
+- name: New module for 2.5
+  hosts: outside
+  tasks:
+  - nxos_l2_interface:
+      name: Ethernet1/1
+      mode: trunk
+      state: present
+      trunk_vlans: 3,4,5
